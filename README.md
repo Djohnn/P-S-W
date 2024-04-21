@@ -9,6 +9,7 @@
     * Consulta por uma aplicação de reuniao link disponibilizado pelo medico.
 
 <h2><i>Cadastro para medicos:</i></h2>
+
   * Liberação de horarios para pacientes agendar
   * Liberação do link para pacientes
   * Avaliação da consulta
