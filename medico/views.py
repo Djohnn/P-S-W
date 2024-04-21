@@ -4,12 +4,13 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from datetime import datetime, timedelta
 from paciente.models import Consulta, Documento
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def cadastro_medico(request):
 
-    dm = DadosMedico.objects.filter(user=request.user).exists()
+    dados_medico = DadosMedico.objects.filter(user=request.user).exists()
 
     if is_medico(request.user):
         messages.add_message(request, constants.WARNING, 'Você já está cadastrado como médico.')
@@ -51,7 +52,8 @@ def cadastro_medico(request):
     messages.add_message(request, constants.SUCCESS, 'Cadastro médico realizado com sucesso.')
     
     return redirect('/medico/abrir_horario') # vai dar erro ainda
-    
+
+@login_required   
 def abrir_horario(request):
     
     if not is_medico(request.user):
@@ -164,3 +166,5 @@ def adicionar_documento(request, id_consulta):
 
     messages.add_message(request, constants.SUCCESS, 'Documento enviado com sucesso!')
     return redirect(f'/medico/consulta_area_medico/{id_consulta}')
+
+

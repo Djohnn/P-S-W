@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'usuarios/css/usuarios.css' %}">
+{% endblock 'head' %}
+
+
+{% block 'body' %}
+{% include "partials/navbar_home.html" %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md d-flex justify-content-center">
+            <div class="cont-cadastro">
+                <br>
+                <br>
+                <section class="cont-logo">
+                    <img class="logo" src="{% static 'geral/img/logo.png' %}">
+                    <label class="text-logo">HEALING</label>
+                </section>
+                <br><br>
+                 <h2>Telemedicina</h2>
+
+                 <p>Cuide da sua saúde com médicos online 24h
+                    Evite filas, salas de espera e custos com deslocamento. Tenha acesso a saúde de qualidade por um preço justo.
+                 </p>
+                 
+                 
+
+                    
+                    
+                
+            </div>
+        </div>
+        <div class="col-md bg-main d-flex justify-content-center align-items-center">
+            <img src="{% static 'usuarios/img/ilustracao.png' %}" alt="">
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock 'body' %}

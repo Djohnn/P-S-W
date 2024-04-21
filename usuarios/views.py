@@ -8,6 +8,10 @@ from django.contrib import auth
 
 # Create your views here.
 
+def home(request):
+    if request.method == "GET":
+        return render(request, 'bv.html')
+
 def cadastro(request):
     if request.method == "GET":
         return render(request, 'cadastro.html')
@@ -62,5 +66,6 @@ def login_view(request):
 def sair(request):
     auth.logout(request)
     return redirect('/usuarios/login')
+
 
 
