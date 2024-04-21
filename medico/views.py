@@ -50,7 +50,7 @@ def cadastro_medico(request):
     dados_medico.save()
     messages.add_message(request, constants.SUCCESS, 'Cadastro médico realizado com sucesso.')
     
-    return redirect('/medicos/abrir_horario') # vai dar erro ainda
+    return redirect('/medico/abrir_horario') # vai dar erro ainda
     
 def abrir_horario(request):
     
@@ -65,7 +65,7 @@ def abrir_horario(request):
     
     elif request.method == "POST":
         data = request.POST.get('data')
-        data_formatada = datetime.strptime(data, "%d-%m-%YT%H:%M")
+        data_formatada = datetime.strptime(data, "%Y-%m-%dT%H:%M")
 
     if data_formatada <= datetime.now():
         messages.add_message(request, constants.WARNING, 'A data deve ser maior ou igual a data atual.')

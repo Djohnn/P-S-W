@@ -40,7 +40,7 @@ def cadastro(request):
             
         )
         
-        return redirect('/usarios/login')
+        return redirect('/paciente/home')
     
 def login_view(request):
     if request.method == "GET":
@@ -54,7 +54,7 @@ def login_view(request):
 
         if user:
             auth.login(request, user)
-            return redirect('/paciente/home') # vai dar erro
+            return redirect('/paciente/home') 
 
         messages.add_message(request, constants.ERROR, "Usuário ou senha inválido")
         return redirect('/usuarios/login')
