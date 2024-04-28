@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from usuarios.views import home
+from django.shortcuts import redirect
+
 
 urlpatterns = [
-    path('', home),
     path('admin/', admin.site.urls),
     path('usuarios/', include('usuarios.urls')),
     path('medico/', include('medico.urls')),
     path('paciente/', include('paciente.urls')),
+    path('', lambda request: redirect('/usuarios/login'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
